@@ -21,60 +21,25 @@ class ManufacturersController extends Controller
 
     public function manufacturersOverview($pageNumber = NULL)
     {
-        $recordsPerPage =4;
-        $offset = ($pageNumber * $recordsPerPage) - $recordsPerPage;
         $totalRecords = count($this->manufacturersmodel->getManufacturers());
-        $manufacturers = $this->manufacturersmodel->getManufacturerByPagination($offset, $recordsPerPage);
-        $nextPage = $pageNumber + 1;
-        $previousPage = $pageNumber - 1;
-        $totalPages = ceil($totalRecords / $recordsPerPage);
-        $firstPage = 1;
-        $secondPage = 2;
-        $thirdPage = 3;
 
-    // Page number 1
-        if ($pageNumber == 1) {
-            $firstPage = $pageNumber;
-        } else {
-            if ($pageNumber == $totalPages) {
-                $firstPage = $pageNumber - 2;
-            } else {
-                $firstPage = $pageNumber - 1;
-            }
-        }
+        $pagination = $this->pagination($pageNumber, 4, $totalRecords);
 
-        //Page number 2
-        if($pageNumber != 1)
-        {
-            $secondPage = $pageNumber;
-            if($pageNumber == $totalPages) {
-               $secondPage = $pageNumber - 1;
-            }else {
-                $secondPage = $pageNumber;
-            }
-        }else {
-            $secondPage = $pageNumber + 1;
-        }
+        $manufacturers = $this->manufacturersmodel->getManufacturerByPagination($pagination['offset'], $pagination['recordsPerPage']);
 
-        //Page number 3
-        if ($pageNumber == 1 || $pageNumber == 2) {
-            $thirdPage = 3;
-        } elseif ($pageNumber == $totalPages) {
-            $thirdPage = $pageNumber;
-        } else {
-            $thirdPage = $pageNumber + 1;
-        }
 
         $data = [
             'title' => 'Overview Manufacturers',
             'manufacturers' => $manufacturers,
-            'pageNumber' => $pageNumber,
-            'nextPage' => $nextPage,
-            'previousPage' => $previousPage,
-            'totalPages' => $totalPages,
-            'firstPage' => $firstPage,
-            'secondPage' => $secondPage,
-            'thirdPage' => $thirdPage
+            'pageNumber' => $pagination['pageNumber'],
+            'nextPage' => $pagination['nextPage'],
+            'previousPage' => $pagination['previousPage'],
+            'totalPages' => $pagination['totalPages'],
+            'firstPage' => $pagination['firstPage'],
+            'secondPage' => $pagination['secondPage'],
+            'thirdPage' => $pagination['thirdPage'],
+            'offset' => $pagination['offset'],
+            'recordsPerPage' => $pagination['recordsPerPage']
         ];
         $this->view('manufacturers/manufacturersOverview', $data);
     }

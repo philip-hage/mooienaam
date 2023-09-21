@@ -21,62 +21,23 @@ class StoresController extends Controller
     public function storesOverview($pageNumber = null)
     {
 
-
-        $recordsPerPage = 1;
-        $offset = ($pageNumber * $recordsPerPage) - $recordsPerPage;
         $totalRecords = count($this->storeModel->getStores());
-        $stores = $this->storeModel->getStoresByPagination($offset, $recordsPerPage);
-        $nextPage = $pageNumber + 1;
-        $previousPage = $pageNumber - 1;
-        $totalPages = ceil($totalRecords / $recordsPerPage);
-        $firstPage = 1;
-        $secondPage = 2;
-        $thirdPage = 3;
+        $pagination = $this->pagination($pageNumber, 4, $totalRecords);
+        $stores = $this->storeModel->getStoresByPagination($pagination['offset'], $pagination['recordsPerPage']);
 
-        // Page number 1
-        if ($pageNumber == 1) {
-            if ($pageNumber == $totalPages && $pageNumber != 1)
-            {
-                $firstPage = $pageNumber - 1;
-            } else {
-                $firstPage = $pageNumber ;
-            }
-        } else {
-                $firstPage = $pageNumber - 1;
-        }
-
-        //Page number 2
-        if($pageNumber != 1)
-        {
-            if ($pageNumber == $totalPages && $pageNumber != 2)
-            {
-                $secondPage = $pageNumber -1;
-            } else {
-                $secondPage = $pageNumber;
-            }
-        }else {
-            $secondPage = $pageNumber + 1;
-        }
-
-        //Page number 3
-        if ($pageNumber == 1 || $pageNumber == 2) {
-            $thirdPage = 3;
-        } elseif ($pageNumber == $totalPages) {
-            $thirdPage = $pageNumber;
-        } else {
-            $thirdPage = $pageNumber + 1;
-        }
 
         $data = [
             'stores' => $stores,
             'title' => 'Overview Stores',
-            'pageNumber' => $pageNumber,
-            'nextPage' => $nextPage,
-            'previousPage' => $previousPage,
-            'totalPages' => $totalPages,
-            'firstPage' => $firstPage,
-            'secondPage' => $secondPage,
-            'thirdPage' => $thirdPage
+            'pageNumber' => $pagination['pageNumber'],
+            'nextPage' => $pagination['nextPage'],
+            'previousPage' => $pagination['previousPage'],
+            'totalPages' => $pagination['totalPages'],
+            'firstPage' => $pagination['firstPage'],
+            'secondPage' => $pagination['secondPage'],
+            'thirdPage' => $pagination['thirdPage'],
+            'offset' => $pagination['offset'],
+            'recordsPerPage' => $pagination['recordsPerPage']
 
         ];
         $this->view('stores/storesOverview', $data);

@@ -41,7 +41,7 @@
                 <?= $data['firstPage'] ?>
             </a></li>
         <?php if ($data['totalPages'] >= 2 ) {?>
-            <li class="page-item <?= ($data['pageNumber'] != 1 && $data['totalPages'] != $data['pageNumber']) ? 'active' : ''; ?>"><a class="page-link" href="<?= $data['secondPage'] ?>">
+            <li class="page-item <?= ($data['pageNumber'] != 1 && $data['totalPages'] != $data['pageNumber'] || ($data['totalPages'] == 2 && $data['pageNumber'] == 2)) ? 'active' : ''; ?>"><a class="page-link" href="<?= $data['secondPage'] ?>">
                     <?= $data['secondPage'] ?>
                 </a></li>
         <?php   } ?>
@@ -51,9 +51,6 @@
                     <?= $data['thirdPage'] ?>
                 </a></li>
         <?php } ?>
-        <!-- Dit lijstitem wordt gebruikt voor de "Volgende" paginaknop. De 'disabled' class wordt toegevoegd als de waarde van $data['nextPage']
-         groter is dan het totaleaantal pagina's ($data['totalPages']), wat aangeeft dat er geen volgende pagina is.
-          De knop leidt naar de volgende pagina in de reeks. -->
         <li class="page-item <?= ($data['nextPage'] > $data['totalPages']) ? 'disabled' : ''; ?>">
             <a class="page-link" href="<?=URLROOT?>/ManufacturersController/manufacturersOverview/<?= $data['nextPage'] ?>">Next</a>
         </li>
