@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
-<form class="form-group" action="<?= URLROOT; ?>/companiescontroller/updatecompany" method="post">
+<form class="form-group" action="<?= URLROOT; ?>CompaniesController/updatecompany" method="post">
     <table>
         <tbody>
         <tr>
@@ -53,4 +53,4 @@ require APPROOT . '/views/includes/Header.php'; ?>
         </tbody>
     </table>
 </form>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/developerApplicationOverview/<?=$data['row']->companyId ?>">Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/developerApplicationOverview/<?=$data['row']->companyId ?>">Go back</a>

@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 
-<form class="form-group" action="<?= URLROOT; ?>/DevelopersApplicationController/createDeveloper/<?= $data['id'] ?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>DevelopersApplicationController/createDeveloper/<?= $data['id'] ?>" method="post">
     <table>
         <tbody>
         <tr>
@@ -27,4 +27,4 @@
     </table>
 </form>
 
-<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/developerApplicationOverview/<?=$data['id']?>" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/developerApplicationOverview/<?=$data['id']?>" >Go back</a>

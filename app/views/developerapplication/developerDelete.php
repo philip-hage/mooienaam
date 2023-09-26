@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
 
-<form class="form-group" action="<?= URLROOT; ?>/DevelopersApplicationController/deleteDeveloper/<?= $data['developerId'] . "+" . $data['companyId']?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>DevelopersApplicationController/deleteDeveloper/<?= $data['developerId'] . "+" . $data['companyId']?>" method="post">
     <table>
         <tbody>
         <tr>
@@ -12,7 +12,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
             </td>
         </tr>
         <td>
-            <a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/developerApplicationOverview/<?=$data['companyId']?>" >No</a>
+            <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/developerApplicationOverview/<?=$data['companyId']?>" >No</a>
         </td>
         </tbody>
     </table>

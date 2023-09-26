@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 <h3><?= $data['title']; ?></h3>
-<form action="<?= URLROOT; ?>/storescontroller/createStorePhone/<?= $data['id']?>" method="post">
+<form action="<?= URLROOT; ?>StoresController/createStorePhone/<?= $data['id']?>" method="post">
     <select class="form-select" name="id" aria-label="Default select example">
     <option selected>Select the phone you want to add</option>
    <?php foreach ($data['phones'] as $row) {
@@ -12,4 +12,4 @@
     <input type="submit" value="Submit">
 </form>
 
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/storeHasPhones/<?=$data['id']?>" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/storeHasPhones/<?=$data['id']?>" >Go back</a>

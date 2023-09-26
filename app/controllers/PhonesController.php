@@ -26,12 +26,13 @@ class PhonesController extends Controller
 
         $phones = $this->phonesmodel->getPhoneByManufacturer($phoneManufactureId);
         $manufacter = $this->manufacturersmodel->getManufacturersById($phoneManufactureId);
+        
+
         $data = [
+            'title' => 'Overzicht telefoons',
             'phones' => $phones,
             'phoneManufactureId' => $phoneManufactureId,
-            'title' => 'Overzicht telefoons',
             'manufacter' => $manufacter,
-
         ];
         $this->view('phones/phoneoverview', $data);
     }
@@ -46,20 +47,20 @@ class PhonesController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $ids[1]);
             }
 
         } else {
             $row = $this->phonesmodel->getPhoneById($ids[0]);
 
             $data = [
+                'title' => 'Update phone',
                 'row' => $row,
                 'phoneId' => $ids[0],
                 'manufacturer' => $ids[1],
-                'title' => 'Update phone'
             ];
             $this->view('phones/updatePhone', $data);
 
@@ -75,10 +76,10 @@ class PhonesController extends Controller
             $result = $this->phonesmodel->deletePhone($ids[0]);
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $ids[1]);
             }
         } else {
             $row = $this->phonesmodel->getPhoneById($ids[0]);
@@ -105,10 +106,10 @@ class PhonesController extends Controller
 
             if (!$result){
                 echo "You created a phone!";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $phoneManufactureId);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $phoneManufactureId);
             } else {
                 echo "Unfortunately creating a phone didn't work";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $phoneManufactureId);
+                header("Refresh: 3; url=" . URLROOT . "PhonesController/phoneoverview/" . $phoneManufactureId);
             }
 
         } else {

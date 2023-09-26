@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
 
-<form class="form-group" action="<?= URLROOT; ?>/informationController/deleteMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer'] ?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>InformationController/deleteMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer'] ?>" method="post">
     <table>
         <tbody>
         <tr>
@@ -12,7 +12,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
             </td>
         </tr>
         <td>
-            <a class="btn btn-primary" href="<?= URLROOT; ?>/informationController/informationOverview/<?=$data['phoneId'] . "+" . $data['manufacturer'] ?>" >No</a>
+            <a class="btn btn-primary" href="<?= URLROOT; ?>InformationController/informationOverview/<?=$data['phoneId'] . "+" . $data['manufacturer'] ?>" >No</a>
         </td>
         </tbody>
     </table>

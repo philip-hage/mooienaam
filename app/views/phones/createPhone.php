@@ -1,5 +1,5 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<form class="form-group" action="<?= URLROOT; ?>/phonescontroller/createPhone/<?= $data['id']?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>PhonesController/createPhone/<?= $data['id']?>" method="post">
     <input class="form-control" type="hidden" name="phonename">
     <table>
         <tbody>
@@ -19,4 +19,4 @@
     </table>
 </form>
 
-<a class="btn btn-primary" href="<?= URLROOT; ?>/PhonesController/phoneoverview/<?= $data['id']?>" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>PhonesController/phoneoverview/<?= $data['id']?>" >Go back</a>

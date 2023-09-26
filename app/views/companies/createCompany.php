@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/companiescontroller/companiesOverview/1" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>CompaniesController/companiesOverview/1" >Go back</a>
 
-<form class="form-group" action="<?= URLROOT; ?>/companiescontroller/createCompany" method="post">
+<form class="form-group" action="<?= URLROOT; ?>CompaniesController/createCompany" method="post">
     <table>
         <tbody>
         <tr>

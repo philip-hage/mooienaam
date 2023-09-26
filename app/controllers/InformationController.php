@@ -54,10 +54,10 @@ class InformationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             }
 
         } else {
@@ -84,11 +84,11 @@ class InformationController extends Controller
             if (!$result)
             {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             } else
             {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             }
         } else {
             $row = $this->informationModel->getContactById($ids[0]);
@@ -115,11 +115,11 @@ class InformationController extends Controller
             if (!$result)
             {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1] );
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1] );
             } else
             {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
             }
         } else {
             $data = [
@@ -143,10 +143,10 @@ class InformationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] . "+" . $ids[2]);
             }
 
         } else {
@@ -173,11 +173,11 @@ class InformationController extends Controller
             if (!$result)
             {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" .  $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" .  $ids[1] . "+" . $ids[2]);
             } else
             {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" .  $ids[1] . "+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" .  $ids[1] . "+" . $ids[2]);
             }
         } else {
             $row = $this->informationModel->getSpecificationById($ids[0]);
@@ -204,11 +204,11 @@ class InformationController extends Controller
                 if ($result)
                 {
                     echo "The create was successful";
-                    header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
+                    header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
                 } else
                 {
                     echo "The create was not successful";
-                    header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
+                    header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
                 }
             } else {
 
@@ -233,11 +233,11 @@ class InformationController extends Controller
                 if ($result)
                 {
                     echo "The create was successful";
-                    header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
+                    header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
                 } else
                 {
                     echo "The create was not successful";
-                    header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
+                    header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[0] ."+" . $ids[1]);
                 }
             } else {
 
@@ -261,10 +261,10 @@ class InformationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
             }
 
         } else {
@@ -291,11 +291,11 @@ class InformationController extends Controller
             if (!$result)
             {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
             } else
             {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/informationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
+                header("Refresh: 3; url=" . URLROOT . "InformationController/informationOverview/" . $ids[1] ."+" . $ids[2]);
             }
         } else {
             $row = $this->informationModel->getMediaById($ids[0]);

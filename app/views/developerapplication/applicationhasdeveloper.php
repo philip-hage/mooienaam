@@ -1,8 +1,8 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 <h4>Developers Overview</h4>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/createDeveloperApplication/<?= $data['applicationId'] ?>">Create Developer</a>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/updateApplication/<?= $data['applicationId']?>">Update Application</a>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/deleteApplication/<?= $data['applicationId']?>">Delete Application</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/createDeveloperApplication/<?= $data['applicationId'] ?>">Create Developer</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/updateApplication/<?= $data['applicationId']?>">Update Application</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/deleteApplication/<?= $data['applicationId']?>">Delete Application</a>
 
 
 
@@ -20,8 +20,8 @@
             echo "<tr> 
                             <td>" . $value->developerFirstName . "</td> 
                             <td>" . $value->developerLastName . "</td> 
-                            <td><a href='" . URLROOT . "/DevelopersApplicationController/updateDeveloperHasApplication/" . $value->developerId . "+" . $value->applicationId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/DevelopersApplicationController/deleteDeveloperHasApplication/" . $value->developerId . "+" . $value->applicationId . "'>Delete</a></td>  
+                            <td><a href='" . URLROOT . "DevelopersApplicationController/updateDeveloperHasApplication/" . $value->developerId . "+" . $value->applicationId . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "DevelopersApplicationController/deleteDeveloperHasApplication/" . $value->developerId . "+" . $value->applicationId . "'>Delete</a></td>  
             ";
         }
     } else {

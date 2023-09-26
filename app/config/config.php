@@ -7,6 +7,7 @@ define('DB_NAME', 'phones');
 
 // Het pad naar de app map
 define('APPROOT', dirname(dirname(__FILE__)));
+define('ROOT', dirname(dirname(dirname(__FILE__))));
 
 // De URL van de site
 define('URLROOT', 'http://localhost/project/');

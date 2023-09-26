@@ -52,10 +52,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $id);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $id);
             }
     } else {
         $row = $this->storeModel->getStoresById($id);
@@ -77,10 +77,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storesOverview/1");
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storesOverview/1");
             }
         } else {
             $row = $this->storeModel->getStoresById($id);
@@ -101,10 +101,10 @@ class StoresController extends Controller
 
             if ($result) {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storesOverview");
             } else {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storesOverview");
             }
 
         } else {
@@ -139,10 +139,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $ids[1]);
             }
         } else {
             $row = $this->storeModel->getPhonesByStoreById($ids[0]);
@@ -164,10 +164,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $ids[1]);
             }
         } else {
             $row = $this->storeModel->getPhonesByStoreById($ids[0]);
@@ -191,10 +191,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $storeId);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $storeId);
             } else {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $storeId);
+                header("Refresh: 3; url=" . URLROOT . "StoresController/storeHasPhones/" . $storeId);
             }
         } else {
             $phones = $this->storeModel->getPhones($storeId);

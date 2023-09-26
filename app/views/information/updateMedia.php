@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
-<form class="form-group" action="<?= URLROOT; ?>/informationcontroller/updateMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer']?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>InformationController/updateMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer']?>" method="post">
     <table>
         <tbody>
         <tr>
@@ -33,4 +33,4 @@
         </tbody>
     </table>
 </form>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/InformationController/informationOverview/<?=$data['phoneId'] . "+" . $data['manufacturer']?>">Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>InformationController/informationOverview/<?=$data['phoneId'] . "+" . $data['manufacturer']?>">Go back</a>

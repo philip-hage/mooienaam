@@ -1,6 +1,6 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 
-<form class="form-group" action="<?= URLROOT; ?>/manufacturerscontroller/createManufacturer" method="post">
+<form class="form-group" action="<?= URLROOT; ?>ManufacturersController/createManufacturer" method="post">
     <table>
         <tbody>
         <tr>
@@ -51,4 +51,4 @@
     </table>
 </form>
 
-<a class="btn btn-primary" href="<?= URLROOT; ?>/manufacturerscontroller/manufacturersOverview/1" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>ManufacturersController/manufacturersOverview/1" >Go back</a>

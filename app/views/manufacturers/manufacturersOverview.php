@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 <h2>Manufacturers Overview</h2>
 <a class="btn btn-primary" href="<?= URLROOT; ?>/">Home page</a>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/manufacturerscontroller/createManufacturer">Create Manufacturer</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>ManufacturersController/createManufacturer">Create Manufacturer</a>
 <table class="table table-primary table-bordered">
     <thead>
         <th>Name</th>
@@ -13,7 +13,7 @@
     <tbody>
         <?php foreach ($data['manufacturers'] as $value) {
              echo "<tr> 
-                            <td><a href='" . URLROOT . "/PhonesController/phoneoverview/" . $value->manufacturerId . "'>$value->manufactureName</a></td>
+                            <td><a href='" . URLROOT . "PhonesController/phoneoverview/" . $value->manufacturerId . "'>$value->manufactureName</a></td>
                             <td>" . $value->manufacturePhoneNumber . "</td> 
                             <td>" . $value->manufactureEmail . "</td>
                             <td>" . $value->manufactureZipCode . "</td>
@@ -29,7 +29,7 @@
          kleiner is dan of gelijk is aan 0, wat aangeeft dat er geen vorige pagina is om naar terug te keren.
          De knop leidt naar de vorige pagina in de reeks. -->
         <li class="page-item <?= ($data['previousPage'] <= 0) ? 'disabled' : ''; ?>">
-            <a class="page-link" href="<?=URLROOT?>/ManufacturersController/manufacturersOverview/<?= $data['previousPage'] ?>">Previous</a>
+            <a class="page-link" href="<?=URLROOT?>ManufacturersController/manufacturersOverview/<?= $data['previousPage'] ?>">Previous</a>
         </li>
         <!-- Dit is een lijstitem voor de eerste paginaknop. Als de huidige pagina de eerste pagina is, wordt 'active' toegevoegd
          aan de class van het element, anders wordt het vorige paginanummer of de volgende pagina minus 2 weergegeven. -->
@@ -48,7 +48,7 @@
                 </a></li>
         <?php } ?>
         <li class="page-item <?= ($data['nextPage'] > $data['totalPages']) ? 'disabled' : ''; ?>">
-            <a class="page-link" href="<?=URLROOT?>/ManufacturersController/manufacturersOverview/<?= $data['nextPage'] ?>">Next</a>
+            <a class="page-link" href="<?=URLROOT?>ManufacturersController/manufacturersOverview/<?= $data['nextPage'] ?>">Next</a>
         </li>
     </ul>
 </nav>

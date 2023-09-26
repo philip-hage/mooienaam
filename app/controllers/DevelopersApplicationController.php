@@ -46,10 +46,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/1/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/1/" . $ids[1]);
             }
         } else {
             $row = $this->developersapplicationmodel->getDeveloperById($ids[0]);
@@ -73,10 +73,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "CompaniesController/companiesOverview/" . $ids[1]);
             }
 
         } else {
@@ -103,11 +103,11 @@ class DevelopersApplicationController extends Controller
             if (!$result)
             {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $developerCompanyId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $developerCompanyId);
             } else
             {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $developerCompanyId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $developerCompanyId);
             }
         } else {
             $data = [
@@ -128,10 +128,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $id);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/DevelopersApplicationController/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationControllerDevelopersApplicationController/" . $id);
             }
         } else {
             $row = $this->developersapplicationmodel->getApplicationById($id);
@@ -152,10 +152,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $id);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $id);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $id);
             }
         } else {
             $row = $this->developersapplicationmodel->getApplicationById($id);
@@ -179,11 +179,11 @@ class DevelopersApplicationController extends Controller
             if (!$result)
             {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $applicationCompanyId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $applicationCompanyId);
             } else
             {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/developerApplicationOverview/" . $applicationCompanyId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/developerApplicationOverview/" . $applicationCompanyId);
             }
 
         } else {
@@ -221,10 +221,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
             }
         } else {
             $row = $this->developersapplicationmodel->getDeveloperById($ids[0]);
@@ -248,10 +248,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" / $ids[1]);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" / $ids[1]);
             }
         } else {
             $row = $this->developersapplicationmodel->getDeveloperByApplicationsById($ids[0]);
@@ -276,10 +276,10 @@ class DevelopersApplicationController extends Controller
 
             if (!$result) {
                 echo "The create was successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $applicationId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $applicationId);
             } else {
                 echo "The create was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $applicationId);
+                header("Refresh: 3; url=" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $applicationId);
             }
     } else {
         $developers = $this->developersapplicationmodel->getDevelopers($applicationId);

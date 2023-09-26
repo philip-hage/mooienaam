@@ -54,10 +54,10 @@ class ManufacturersController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/manufacturerscontroller/manufacturersOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "ManufacturersController/manufacturersOverview/1");
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/manufacturerscontroller/manufacturersOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "ManufacturersController/manufacturersOverview/1");
             }
 
         } else {
@@ -81,10 +81,10 @@ class ManufacturersController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/manufacturerscontroller/manufacturersOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "ManufacturersController/manufacturersOverview/1");
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/manufacturerscontroller/manufacturersOverview/1");
+                header("Refresh: 3; url=" . URLROOT . "ManufacturersController/manufacturersOverview/1");
             }
         } else {
 
@@ -106,7 +106,7 @@ class ManufacturersController extends Controller
         {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
             $this->manufacturersmodel->createManufacture($_POST);
-            header("Location: " . URLROOT . "/manufacturerscontroller/manufacturersOverview/1");
+            header("Location: " . URLROOT . "ManufacturersController/manufacturersOverview/1");
         } else {
 
             $data = [

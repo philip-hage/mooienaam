@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/storesOverview/1" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/storesOverview/1" >Go back</a>
 
-<form class="form-group" action="<?= URLROOT; ?>/storescontroller/createStore" method="post">
+<form class="form-group" action="<?= URLROOT; ?>StoresController/createStore" method="post">
     <table>
         <tbody>
         <tr>

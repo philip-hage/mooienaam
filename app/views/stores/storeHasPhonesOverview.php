@@ -3,9 +3,9 @@
 <h3>Name Store: <?= $data['store']->storeName; ?></h3>
 <h4>Phones Overview</h4>
 <!--<a class="btn btn-primary" href="--><?php //= URLROOT; ?><!--/developersController/createDeveloper/--><?php //= $data['companyId'] ?><!--" >Create Developer</a>-->
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/createStorePhone/<?= $data['storeId'] ?>">Create Phone</a>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/updatestore/<?= $data['storeId'] ?>">Update Store</a>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/deletestore/<?= $data['storeId'] ?>">Delete Store</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/createStorePhone/<?= $data['storeId'] ?>">Create Phone</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/updatestore/<?= $data['storeId'] ?>">Update Store</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/deletestore/<?= $data['storeId'] ?>">Delete Store</a>
 
 
 
@@ -23,8 +23,8 @@
             echo "<tr> 
                             <td>" . $value->phoneName . "</td> 
                             <td>" . $value->phonePrice . "</td> 
-                            <td><a href='" . URLROOT . "/storesController/updateStoreHasPhones/" . $value->phoneId . "+" . $value->storeId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/storesController/deletePhoneFromStore/" . $value->phoneId . "+" . $value->storeId . "'>Delete</a></td>  
+                            <td><a href='" . URLROOT . "StoresController/updateStoreHasPhones/" . $value->phoneId . "+" . $value->storeId . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "StoresController/deletePhoneFromStore/" . $value->phoneId . "+" . $value->storeId . "'>Delete</a></td>  
             ";
         }
     } else {
@@ -33,7 +33,7 @@
     </tbody>
 </table>
 
-<a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/storesOverview/1">Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/storesOverview/1">Go back</a>
 
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
