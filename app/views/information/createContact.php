@@ -1,7 +1,7 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/phoneoverview/" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/InformationController/informationOverview/<?=$data['phoneid'] . "+" . $data['manufacturer'] ?>" >Go back</a>
 
-<form class="form-group" action="<?= URLROOT; ?>/informationcontroller/createContact/<?= $data['id'] ?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>/informationcontroller/createContact/<?= $data['phoneid'] . "+" . $data['manufacturer'] ?>" method="post">
     <table>
         <tbody>
         <tr>
@@ -33,7 +33,7 @@
                 Phone Number:
             </td>
             <td>
-                <input class="form-control" required type="text" name="contactnumber">
+                <input class="form-control" required type="number" name="contactnumber">
             </td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
                 Birthday Date:
             </td>
             <td>
-                <input class="form-control" required type="text" name="contactbirthdaydate">
+                <input class="form-control" required type="date" name="contactbirthdaydate">
             </td>
         </tr>
         <td>

@@ -1,5 +1,6 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/phoneoverview">Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/updatePhone/<?= $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId ?>">Update Phone</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/deletePhone/<?= $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId ?>">Delete Phone</a>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
         <button class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="true">Contacts</button>
@@ -13,7 +14,7 @@
 </ul>
 <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createContact/<?= $data['phoneId'] ?>">Create Contact</a>
+        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createContact/<?= $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId ?>">Create Contact</a>
         <table class="table table-primary table-bordered">
             <thead>
             <th>First Name</th>
@@ -34,8 +35,8 @@
                             <td>" . $value->contactEmail . "</td>
                             <td>" . $value->contactNumber . "</td>
                             <td>" . $value->contactBirthdayDate . "</td>
-                          <td><a href='" . URLROOT . "/InformationController/updateContact/" . $value->contactId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/InformationController/deleteContact/" . $value->contactId . "'>Delete</a></td>  
+                          <td><a href='" . URLROOT . "/InformationController/updateContact/" . $value->contactId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "/InformationController/deleteContact/" . $value->contactId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Delete</a></td>  
             ";
             }
                 } else {
@@ -45,7 +46,7 @@
         </table>
     </div>
     <div class="tab-pane fade" id="specification-tab-pane" role="tabpanel" aria-labelledby="specification-tab" tabindex="0">
-        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createSpecification/<?= $data['phoneId'] ?>">Create Specification</a>
+        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createSpecification/<?= $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId ?>">Create Specification</a>
         <table class="table table-primary table-bordered">
             <thead>
             <th>Specification Name</th>
@@ -60,8 +61,8 @@
                 echo "<tr> 
                             <td>" . $value->specificationName . "</td> 
                             <td>" . $value->specificationValue . "</td> 
-                          <td><a href='" . URLROOT . "/InformationController/updateSpecification/" . $value->specificationId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/InformationController/deleteSpecification/" . $value->specificationId . "'>Delete</a></td>  
+                          <td><a href='" . URLROOT . "/InformationController/updateSpecification/" . $value->specificationId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "/InformationController/deleteSpecification/" . $value->specificationId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Delete</a></td>  
             ";
             }
             } else {
@@ -71,11 +72,11 @@
         </table>
     </div>
     <div class="tab-pane fade" id="media-tab-pane" role="tabpanel" aria-labelledby="media-tab" tabindex="0">
-        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createMedia/<?= $data['phoneId'] ?>">Create Media</a>
+        <a class="btn btn-primary" href="<?= URLROOT; ?>/informationcontroller/createMedia/<?= $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId ?>">Create Media</a>
         <table class="table table-primary table-bordered">
             <thead>
             <th>Media Type</th>
-            <th>Media Name</th>
+            <th>Media Path</th>
             <th>Update</th>
             <th>Delete</th>
             </thead>
@@ -85,8 +86,8 @@
                 echo "<tr> 
                             <td>" . $value->mediaType . "</td> 
                             <td>" . $value->mediaPath . "</td> 
-                          <td><a href='" . URLROOT . "/ManufacturersController/updateManufacturer/" . $value->mediaId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/ManufacturersController/deleteManufacturer/" . $value->mediaId . "'>Delete</a></td>  
+                          <td><a href='" . URLROOT . "/informationcontroller/updateMedia/" . $value->mediaId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "/informationcontroller/deleteMedia/" . $value->mediaId . "+" . $data['phoneId'] . "+" . $data['manufacturer']->manufacturerId . "'>Delete</a></td>  
             ";
             }
             } else {
@@ -96,3 +97,19 @@
         </table>
     </div>
 </div>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/phoneoverview/<?=$data['manufacturer']->manufacturerId ?>">Go back</a>
+
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>

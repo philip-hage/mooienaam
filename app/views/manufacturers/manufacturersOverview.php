@@ -9,8 +9,6 @@
         <th>Email</th>
         <th>Zipcode</th>
         <th>City</th>
-        <th>Update</th>
-        <th>Delete</th>
     </thead>
     <tbody>
         <?php foreach ($data['manufacturers'] as $value) {
@@ -20,8 +18,6 @@
                             <td>" . $value->manufactureEmail . "</td>
                             <td>" . $value->manufactureZipCode . "</td>
                             <td>" . $value->manufactureCity . "</td>
-                            <td><a href='" . URLROOT . "/ManufacturersController/updateManufacturer/" . $value->manufacturerId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/ManufacturersController/deleteManufacturer/" . $value->manufacturerId . "'>Delete</a></td>  
             ";
         } ?>
     </tbody>

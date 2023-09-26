@@ -57,4 +57,4 @@
         </tbody>
     </table>
 </form>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/manufacturerscontroller/manufacturersOverview/1" >Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/phoneoverview/<?=$data['row']->manufacturerId ?>" >Go back</a>

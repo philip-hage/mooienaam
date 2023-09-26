@@ -9,8 +9,6 @@
     <th>Email</th>
     <th>Zipcode</th>
     <th>City</th>
-    <th>Update</th>
-    <th>Delete</th>
     </thead>
     <tbody>
     <?php foreach ($data['stores'] as $value) {
@@ -20,8 +18,6 @@
                             <td>" . $value->storeEmail . "</td>
                             <td>" . $value->storeZipCode . "</td>
                             <td>" . $value->storeCity . "</td>
-                            <td><a href='" . URLROOT . "/StoresController/updateStore/" . $value->storeId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/StoresController/deleteStore/" . $value->storeId . "'>Delete</a></td>  
             ";
     } ?>
     </tbody>

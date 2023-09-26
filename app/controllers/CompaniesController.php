@@ -54,11 +54,11 @@ class CompaniesController extends Controller
             if (!$result)
             {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview/1");
             } else
             {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview/1");
             }
         } else {
             $row = $this->companiesmodel->getCompaniesById($id);
@@ -81,11 +81,11 @@ class CompaniesController extends Controller
             if (!$result)
             {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview/1");
             } else
             {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/companiescontroller/companiesOverview/1");
             }
         } else {
             $row = $this->companiesmodel->getCompaniesById($id);

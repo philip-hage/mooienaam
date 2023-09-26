@@ -52,10 +52,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $id);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $id);
             }
     } else {
         $row = $this->storeModel->getStoresById($id);
@@ -77,10 +77,10 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/1");
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/1");
             }
         } else {
             $row = $this->storeModel->getStoresById($id);
@@ -129,8 +129,9 @@ class StoresController extends Controller
         $this->view('stores/storeHasPhonesOverview', $data);
     }
 
-    public function updateStoreHasPhones($id = null)
+    public function updateStoreHasPhones($ids)
     {
+        $ids = explode("+", $ids);
         if ($_SERVER["REQUEST_METHOD"] == 'POST') {
             $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
@@ -138,40 +139,73 @@ class StoresController extends Controller
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
             }
         } else {
-            $row = $this->storeModel->getPhonesByStoreById($id);
+            $row = $this->storeModel->getPhonesByStoreById($ids[0]);
             $data = [
                 'row' => $row,
-                'title' => 'Update storeHasPhones'
+                'title' => 'Update storeHasPhones',
+                'phoneId' => $ids[0],
+                'storeId' => $ids[1]
             ];
             $this->view('stores/updateStoreHasPhones', $data);
         }
     }
 
-    public function deletePhoneFromStore($id = null)
+    public function deletePhoneFromStore($ids)
     {
+        $ids = explode("+", $ids);
         if($_SERVER["REQUEST_METHOD"] == 'POST') {
-            $result = $this->storeModel->deletePhoneFromStore($id);
+            $result = $this->storeModel->deletePhoneFromStore($ids[0]);
 
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storesOverview/");
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $ids[1]);
             }
         } else {
-            $row = $this->storeModel->getPhonesByStoreById($id);
+            $row = $this->storeModel->getPhonesByStoreById($ids[0]);
             $data = [
                 'row' => $row,
-                'title' => 'Are you sure you want to delete this phone from this store?'
+                'title' => 'Are you sure you want to delete this phone from this store?',
+                'phoneId' => $ids[0],
+                'storeId' => $ids[1]
             ];
             $this->view('stores/deletePhoneFromStore', $data);
+        }
+    }
+
+    public function createStorePhone($storeId = null)
+    {
+        if ($_SERVER["REQUEST_METHOD"] == 'POST')
+        {
+            $post = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            
+            $result = $this->storeModel->createStorePhone($post, $storeId);
+
+            if (!$result) {
+                echo "The create was successful";
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $storeId);
+            } else {
+                echo "The create was not successful";
+                header("Refresh: 3; url=" . URLROOT . "/storescontroller/storeHasPhones/" . $storeId);
+            }
+        } else {
+            $phones = $this->storeModel->getPhones($storeId);
+
+            $data = [
+                'id' => $storeId,
+                'title' => 'create phone',
+                'phones' => $phones
+            ];
+            $this->view('stores/createStorePhone', $data);
+
         }
     }
 

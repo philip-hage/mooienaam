@@ -11,7 +11,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
             </td>
         </tr>
         <td>
-            <a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/storesOverview/" >No</a>
+            <a class="btn btn-primary" href="<?= URLROOT; ?>/storescontroller/storeHasPhones/<?=$data['row']->storeId ?>" >No</a>
         </td>
         </tbody>
     </table>

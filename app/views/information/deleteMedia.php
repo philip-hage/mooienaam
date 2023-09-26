@@ -3,7 +3,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
 
-<form class="form-group" action="<?= URLROOT; ?>/informationController/deleteSpecification/<?= $data['specificationId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer'] ?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>/informationController/deleteMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer'] ?>" method="post">
     <table>
         <tbody>
         <tr>

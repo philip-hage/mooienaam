@@ -163,5 +163,53 @@ class InformationModel
         return $this->db->execute();
     }
 
+    public function createMedia($post, $mediaPhoneId)
+    {
+        global $var;
+        $this->db->query("INSERT INTO media (
+                                                mediaId,
+                                                mediaPhoneId,
+                                                mediaType,
+                                                mediaPath,
+                                                mediaCreate)
+                                        VALUES(:id, :mediaphoneid, :mediatype, :mediapath, :mediacreate)");
+        $this->db->bind(':id', $var['rand']);
+        $this->db->bind(':mediaphoneid', $mediaPhoneId);
+        $this->db->bind(':mediatype', $post['mediatype']);
+        $this->db->bind(':mediapath', $post['mediapath']);
+        $this->db->bind(':mediacreate', $var['timestamp']);
+        return $this->db->execute();
+    }
+    public function updateMedia($post)
+    {
+        $this->db->query("UPDATE media SET mediaType = :mediatype,
+                                           mediaPath = :mediapath
+                                            WHERE mediaId = :id");
+        $this->db->bind(':id', $post['id']);
+        $this->db->bind(':mediatype', $post['mediatype']);
+        $this->db->bind(':mediapath', $post['mediapath']);
+        $this->db->execute();
+    }
+
+    public function deleteMedia($id)
+    {
+        $this->db->query("UPDATE media SET mediaIsActive = 0 WHERE mediaId = :id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+    }
+
+    public function getMediaById($id)
+    {
+        $this->db->query("SELECT    p.phoneId,
+                                     m.mediaId,
+                                     m.mediaPhoneId,
+                                     m.mediaType,
+                                     m.mediaPath
+                                     FROM media as m INNER JOIN phones as p ON m.mediaPhoneId = p.phoneId
+                                     WHERE m.mediaId = :id");
+        $this->db->bind(':id', $id);
+        return $this->db->single();
+    }
+
 
 }

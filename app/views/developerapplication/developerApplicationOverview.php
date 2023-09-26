@@ -1,4 +1,6 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/CompaniesController/updateCompany/<?= $data['companyId'] ?>">Update Company</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/CompaniesController/deleteCompany/<?= $data['companyId'] ?>">Delete Company</a>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Developers</button>
@@ -24,8 +26,8 @@
                 echo "<tr> 
                             <td>" . $value->developerFirstName . "</td> 
                             <td>" . $value->developerLastName . "</td> 
-                          <td><a href='" . URLROOT . "/DevelopersApplicationController/updateDeveloper/" . $value->developerId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/DevelopersApplicationController/deleteDeveloper/" . $value->developerId . "'>Delete</a></td>  
+                          <td><a href='" . URLROOT . "/DevelopersApplicationController/updateDeveloper/" . $value->developerId . "+" .$data['companyId'] . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "/DevelopersApplicationController/deleteDeveloper/" . $value->developerId . "+" .$data['companyId'] .  "'>Delete</a></td>  
             ";
             }
                 } else {
@@ -43,21 +45,17 @@
             <th>Date Release</th>
             <th>Rating</th>
             <th>Price</th>
-            <th>Update</th>
-            <th>Delete</th>
             </thead>
             <tbody>
 
             <?php if (!empty($data['application']))
             {foreach ($data['application'] as $value) {
                 echo "<tr> 
-                            <td>" . $value->applicationName . "</td> 
+                <td><a href='" . URLROOT . "/DevelopersApplicationController/applicationHasDevelopers/" . $value->applicationId  . "'>$value->applicationName</a></td>
                             <td>" . $value->applicationUsage . "</td> 
                             <td>" . $value->applicationDateRelease . "</td> 
                             <td>" . $value->applicationRating . "</td> 
                             <td>" . $value->applicationPrice . "</td> 
-                          <td><a href='" . URLROOT . "/DevelopersApplicationController/updateApplication/" . $value->applicationId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/DevelopersApplicationController/deleteApplication/" . $value->applicationId . "'>Delete</a></td>  
             ";
             }
                 } else {
@@ -67,3 +65,19 @@
         </table>
   </div>
 </div>
+
+<a class="btn btn-primary" href="<?= URLROOT; ?>/companiescontroller/companiesOverview/1">Go back</a>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li class="page-item disabled">
+      <a class="page-link">Previous</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">Next</a>
+    </li>
+  </ul>
+</nav>

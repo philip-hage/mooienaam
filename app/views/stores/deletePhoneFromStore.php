@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
-<form class="form-group" action="<?= URLROOT; ?>/storescontroller/deletePhoneFromStore/<?= $data['row']->storeId ?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>/storescontroller/deletePhoneFromStore/<?= $data['phoneId'] . "+" . $data['storeId'] ?>" method="post">
     <table>
         <tbody>
         <tr>

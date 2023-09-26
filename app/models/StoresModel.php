@@ -107,12 +107,12 @@ class StoresModel
                                      sp.phonePrice
                                      FROM storeshasphones as sp INNER JOIN phones as p ON sp.phoneId = p.phoneId
                                      INNER JOIN stores as s ON sp.storeId = s.storeId
-                                     WHERE sp.storeId = :storeId AND p.phoneIsActive = 1");
+                                     WHERE sp.storeId = :storeId AND sp.IsActive = 1");
         $this->db->bind(':storeId', $storeId);
         return $this->db->resultSet();
     }
 
-    public function getPhonesByStoreById($storeId)
+    public function getPhonesByStoreById($phoneId)
     {
         $this->db->query("SELECT p.phoneId,
                                      p.phoneName,
@@ -123,8 +123,8 @@ class StoresModel
                                      sp.phonePrice
                                      FROM storeshasphones as sp INNER JOIN phones as p ON sp.phoneId = p.phoneId
                                      INNER JOIN stores as s ON sp.storeId = s.storeId
-                                     WHERE sp.storeId = :storeId");
-        $this->db->bind(':storeId', $storeId);
+                                     WHERE sp.phoneId = :phoneId");
+        $this->db->bind(':phoneId', $phoneId);
         return $this->db->single();
     }
 
@@ -139,11 +139,31 @@ class StoresModel
         $this->db->execute();
     }
 
-    public function deletePhoneFromStore($id, $storeid)
+    public function deletePhoneFromStore($id)
     {
-        $this->db->query("UPDATE FROM storeshasphones SET IsActive = 0 WHERE phoneId = :id AND storeId = :storeid");
+        $this->db->query("UPDATE storeshasphones SET IsActive = 0 WHERE phoneId = :id");
         $this->db->bind(':id', $id);
-        $this->db->bind(':storeid', $storeid);
+        $this->db->execute();
+    }
+
+    public function getPhones()
+    {
+        $this->db->query("SELECT phoneId,
+                                 phoneName
+                                 FROM phones 
+                                 WHERE phoneIsActive = 1");
+        return $this->db->resultSet();
+    }
+
+    public function createStorePhone($post, $storeId)
+    {
+        $this->db->query("INSERT INTO storeshasphones (
+                                                        storeId, phoneId, phonePrice
+        ) VALUES (:storeid, :phoneid, :phoneprice )");
+
+        $this->db->bind(':storeid', $storeId);
+        $this->db->bind(':phoneid', $post['id']);
+        $this->db->bind(':phoneprice', $post['phoneprice']);
         $this->db->execute();
     }
 

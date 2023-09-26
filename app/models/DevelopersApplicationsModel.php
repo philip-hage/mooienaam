@@ -150,4 +150,74 @@ class DevelopersApplicationsModel
         $this->db->execute();
     }
 
+    public function getDeveloperByApplications($applicationId)
+    {
+        $this->db->query("SELECT d.developerId, 
+                                 d.developerFirstName,
+                                 d.developerLastName,
+                                 a.applicationId,
+                                 a.applicationName,
+                                 ahd.developerId,
+                                 ahd.applicationId
+                                 FROM applicationshasdevelopers AS ahd INNER JOIN applications as a ON ahd.applicationId = a.applicationId
+                                 INNER JOIN developers as d ON ahd.developerId = d.developerId
+                                 WHERE ahd.applicationId = :applicationId AND ahd.IsActive = 1");
+        $this->db->bind(':applicationId', $applicationId);
+        $result = $this->db->resultSet();
+        return $result;
+    }
+
+    public function getDeveloperByApplicationsById($applicationId)
+    {
+        $this->db->query("SELECT d.developerId, 
+                                 d.developerFirstName,
+                                 d.developerLastName,
+                                 a.applicationId,
+                                 a.applicationName,
+                                 ahd.developerId,
+                                 ahd.applicationId
+                                 FROM applicationshasdevelopers AS ahd INNER JOIN applications as a ON ahd.applicationId = a.applicationId
+                                 INNER JOIN developers as d ON ahd.developerId = d.developerId
+                                 WHERE ahd.applicationId = :applicationId");
+        $this->db->bind(':applicationId', $applicationId);
+        return $this->db->single();
+    }
+
+    public function deleteDeveloperHasApplication($id)
+    {
+        $this->db->query("UPDATE applicationshasdevelopers SET isActive = 0 WHERE developerId = :id");
+        $this->db->bind(':id', $id);
+        $this->db->execute();
+    }
+
+    public function getDevelopers()
+    {
+        $this->db->query("SELECT developerId,
+                                 developerFirstName
+                                 FROM developers 
+                                 WHERE developerIsActive = 1");
+        return $this->db->resultSet();
+    }
+
+    public function createDeveloperApplication($post, $applicationId)
+    {
+        $this->db->query("INSERT INTO applicationshasdevelopers (
+                                                                developerId,
+                                                                applicationId) 
+                                                        VALUES (:developerid, :applicationid)");
+        $this->db->bind(':developerid', $post['id']);
+        $this->db->bind(':applicationid', $applicationId);
+        $this->db->execute();
+    }
+
+    public function updateDeveloperHasApplication($post)
+    {
+        $this->db->query("UPDATE developers SET developerFirstName = :developerfirstname,
+                                                developerLastName = :developerlastname
+                                            WHERE developerId = :id");
+        $this->db->bind(':id', $post['id']);
+        $this->db->bind(':developerfirstname', $post['developerfirstname']);
+        $this->db->bind(':developerlastname', $post['developerlastname']);
+        $this->db->execute();
+    }
 }

@@ -1,5 +1,4 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/companiescontroller/companiesoverview/" >Go back</a>
 
 <form class="form-group" action="<?= URLROOT; ?>/DevelopersApplicationController/createDeveloper/<?= $data['id'] ?>" method="post">
     <table>
@@ -27,3 +26,5 @@
         </tbody>
     </table>
 </form>
+
+<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/developerApplicationOverview/<?=$data['id']?>" >Go back</a>

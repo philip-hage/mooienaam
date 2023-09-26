@@ -8,8 +8,6 @@
     <th>Phone Number</th>
     <th>Email</th>
     <th>City</th>
-    <th>Update</th>
-    <th>Delete</th>
     </thead>
     <tbody>
     <?php foreach ($data['companies'] as $value) {
@@ -18,12 +16,11 @@
                             <td>" . $value->companyPhone . "</td> 
                             <td>" . $value->companyEmail . "</td>
                             <td>" . $value->companyCity . "</td>
-                            <td><a href='" . URLROOT . "/CompaniesController/updateCompany/" . $value->companyId . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "/CompaniesController/deleteCompany/" . $value->companyId . "'>Delete</a></td>  
             ";
     } ?>
     </tbody>
 </table>
+
 
 <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">

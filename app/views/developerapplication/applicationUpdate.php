@@ -2,7 +2,7 @@
 require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
-<form class="form-group" action="<?= URLROOT; ?>/DevelopersApplicationController/updateApplication" method="post">
+<form class="form-group" action="<?= URLROOT; ?>/DevelopersApplicationController/updateApplication/<?=$data['row']->applicationId?>" method="post">
     <table>
         <tbody>
         <tr>

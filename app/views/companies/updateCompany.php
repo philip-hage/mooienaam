@@ -53,4 +53,4 @@ require APPROOT . '/views/includes/Header.php'; ?>
         </tbody>
     </table>
 </form>
-<a class="btn btn-primary" href="<?= URLROOT; ?>/companiescontroller/companiesOverview/1">Go back</a>
+<a class="btn btn-primary" href="<?= URLROOT; ?>/DevelopersApplicationController/developerApplicationOverview/<?=$data['row']->companyId ?>">Go back</a>

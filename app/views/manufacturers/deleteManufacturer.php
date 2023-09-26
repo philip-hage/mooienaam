@@ -12,7 +12,7 @@ require APPROOT . '/views/includes/Header.php'; ?>
             </td>
         </tr>
         <td>
-            <a class="btn btn-primary" href="<?= URLROOT; ?>/manufacturerscontroller/manufacturersOverview/1" >No</a>
+            <a class="btn btn-primary" href="<?= URLROOT; ?>/phonescontroller/phoneoverview/<?= $data['row']->manufacturerId ?>" >No</a>
         </td>
         </tbody>
     </table>

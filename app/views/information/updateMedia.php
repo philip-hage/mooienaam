@@ -1,28 +1,28 @@
 <?php require APPROOT . '/views/includes/Header.php'; ?>
 <h3 class="d-flex justify-content-left"><?= $data['title'] ?></h3>
 
-<form class="form-group" action="<?= URLROOT; ?>/informationcontroller/updateSpecification/<?= $data['specificationId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer']?>" method="post">
+<form class="form-group" action="<?= URLROOT; ?>/informationcontroller/updateMedia/<?= $data['mediaId'] . "+" . $data['phoneId'] . "+" . $data['manufacturer']?>" method="post">
     <table>
         <tbody>
         <tr>
             <td>
-                Specification Name
+                Media Type
             </td>
             <td>
-                <input class="form-control" type="text" name="specificationname" required value="<?= $data['row']->specificationName; ?>">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Specification Value:
-            </td>
-            <td>
-                <input class="form-control" type="text" name="specificationvalue" required value="<?= $data['row']->specificationValue; ?>">
+                <input class="form-control" type="text" name="mediatype" required value="<?= $data['row']->mediaType; ?>">
             </td>
         </tr>
         <tr>
             <td>
-                <input type="hidden" name="id" value="<?= $data['row']->specificationId; ?>">
+                Media Path:
+            </td>
+            <td>
+                <input class="form-control" type="text" name="mediapath" required value="<?= $data['row']->mediaPath; ?>">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="hidden" name="id" value="<?= $data['row']->mediaId; ?>">
             </td>
         </tr>
         <tr>
@@ -34,4 +34,3 @@
     </table>
 </form>
 <a class="btn btn-primary" href="<?= URLROOT; ?>/InformationController/informationOverview/<?=$data['phoneId'] . "+" . $data['manufacturer']?>">Go back</a>
-

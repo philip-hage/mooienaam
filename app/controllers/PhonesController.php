@@ -36,27 +36,29 @@ class PhonesController extends Controller
         $this->view('phones/phoneoverview', $data);
     }
 
-    public function updatePhone($id = null)
+    public function updatePhone($ids)
     {
+        $ids = explode("+", $ids);
         if($_SERVER["REQUEST_METHOD"] == 'POST')
         {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-
             $result = $this->phonesmodel->updatePhone($_POST);
 
             if (!$result) {
                 echo "The update was successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview");
+                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
             } else {
                 echo "The update was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview");
+                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
             }
 
         } else {
-            $row = $this->phonesmodel->getPhoneById($id);
+            $row = $this->phonesmodel->getPhoneById($ids[0]);
 
             $data = [
                 'row' => $row,
+                'phoneId' => $ids[0],
+                'manufacturer' => $ids[1],
                 'title' => 'Update phone'
             ];
             $this->view('phones/updatePhone', $data);
@@ -64,24 +66,27 @@ class PhonesController extends Controller
         }
     }
 
-    public function deletePhone($id = null)
+    public function deletePhone($ids)
     {
+        $ids = explode("+", $ids);
         if($_SERVER["REQUEST_METHOD"] == 'POST')
         {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $result = $this->phonesmodel->deletePhone($id);
+            $result = $this->phonesmodel->deletePhone($ids[0]);
             if (!$result) {
                 echo "The delete was successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview");
+                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
             } else {
                 echo "The delete was not successful";
-                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview");
+                header("Refresh: 3; url=" . URLROOT . "/phonesController/phoneoverview/" . $ids[1]);
             }
         } else {
-            $row = $this->phonesmodel->getPhoneById($id);
+            $row = $this->phonesmodel->getPhoneById($ids[0]);
 
             $data = [
                 'row' => $row,
+                'phoneId' => $ids[0],
+                'manufacturer' => $ids[1],
                 'title' => 'Are you sure you want to delete this phone?'
             ];
             $this->view('phones/deletePhone', $data);
