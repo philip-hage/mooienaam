@@ -6,7 +6,7 @@
 
 
 
-<table class="table table-primary table-bordered">
+<table id="paginated-list" data-current-page="1" aria-live="polite" class="table table-primary table-bordered">
     <thead>
     <th>First Name</th>
     <th>Last Name</th>
@@ -17,7 +17,7 @@
     <?php if(!empty($data['applicationHasDevelopers']))
     {
         foreach ($data['applicationHasDevelopers'] as $value) {
-            echo "<tr> 
+            echo "<tr class='table-body-tr'> 
                             <td>" . $value->developerFirstName . "</td> 
                             <td>" . $value->developerLastName . "</td> 
                             <td><a href='" . URLROOT . "DevelopersApplicationController/updateDeveloperHasApplication/" . $value->developerId . "+" . $value->applicationId . "'>Update</a></td> 
@@ -30,16 +30,16 @@
     </tbody>
 </table>
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
+<nav class="pagination-container">
+  <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+    &lt;
+  </button>
+
+  <div id="pagination-numbers">
+
+  </div>
+
+  <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+    &gt;
+  </button>
 </nav>

@@ -1,5 +1,3 @@
-<?php require APPROOT . '/views/includes/Header.php'; ?>
-
 <h3>Name Store: <?= $data['store']->storeName; ?></h3>
 <h4>Phones Overview</h4>
 <!--<a class="btn btn-primary" href="--><?php //= URLROOT; ?><!--/developersController/createDeveloper/--><?php //= $data['companyId'] ?><!--" >Create Developer</a>-->
@@ -9,7 +7,7 @@
 
 
 
-<table class="table table-primary table-bordered">
+<table id="paginated-list" data-current-page="1" aria-live="polite" class="table table-primary table-bordered">
     <thead>
     <th>Name</th>
     <th>Price</th>
@@ -20,7 +18,7 @@
     <?php if(!empty($data['storeHasPhones']))
     {
         foreach ($data['storeHasPhones'] as $value) {
-            echo "<tr> 
+            echo "<tr class='table-body-tr'> 
                             <td>" . $value->phoneName . "</td> 
                             <td>" . $value->phonePrice . "</td> 
                             <td><a href='" . URLROOT . "StoresController/updateStoreHasPhones/" . $value->phoneId . "+" . $value->storeId . "'>Update</a></td> 
@@ -35,16 +33,16 @@
 
 <a class="btn btn-primary" href="<?= URLROOT; ?>StoresController/storesOverview/1">Go back</a>
 
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
+<nav class="pagination-container">
+  <button class="pagination-button" id="prev-button" aria-label="Previous page" title="Previous page">
+    &lt;
+  </button>
+
+  <div id="pagination-numbers">
+
+  </div>
+
+  <button class="pagination-button" id="next-button" aria-label="Next page" title="Next page">
+    &gt;
+  </button>
 </nav>

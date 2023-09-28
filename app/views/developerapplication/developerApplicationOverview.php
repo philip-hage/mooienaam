@@ -1,4 +1,3 @@
-<?php require APPROOT . '/views/includes/Header.php'; ?>
 <a class="btn btn-primary" href="<?= URLROOT; ?>CompaniesController/updateCompany/<?= $data['companyId'] ?>">Update Company</a>
 <a class="btn btn-primary" href="<?= URLROOT; ?>CompaniesController/deleteCompany/<?= $data['companyId'] ?>">Delete Company</a>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -11,73 +10,85 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-  <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/createDeveloper/<?= $data['companyId'] ?>">Create Developer</a>
-        <table class="table table-primary table-bordered">
-            <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Update</th>
-            <th>Delete</th>
-            </thead>
-            <tbody>
+    <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/createDeveloper/<?= $data['companyId'] ?>">Create Developer</a>
+    <table id="paginated-list-1" data-current-page="1" aria-live="polite" class="table table-primary table-bordered">
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </thead>
+      <tbody>
 
-            <?php if (!empty($data['developer']))
-            {foreach ($data['developer'] as $value) {
-                echo "<tr> 
+        <?php if (!empty($data['developer'])) {
+          foreach ($data['developer'] as $value) {
+            echo "<tr class='table-body-tr-1'> 
                             <td>" . $value->developerFirstName . "</td> 
                             <td>" . $value->developerLastName . "</td> 
-                          <td><a href='" . URLROOT . "DevelopersApplicationController/updateDeveloper/" . $value->developerId . "+" .$data['companyId'] . "'>Update</a></td> 
-                            <td><a href='" . URLROOT . "DevelopersApplicationController/deleteDeveloper/" . $value->developerId . "+" .$data['companyId'] .  "'>Delete</a></td>  
+                          <td><a href='" . URLROOT . "DevelopersApplicationController/updateDeveloper/" . $value->developerId . "+" . $data['companyId'] . "'>Update</a></td> 
+                            <td><a href='" . URLROOT . "DevelopersApplicationController/deleteDeveloper/" . $value->developerId . "+" . $data['companyId'] .  "'>Delete</a></td>  
             ";
-            }
-                } else {
-                    echo "<tr><td colspan='7'>No Developers found</td></tr>";
-                } ?>
-            </tbody>
-        </table>
+          }
+        } else {
+          echo "<tr><td colspan='7'>No Developers found</td></tr>";
+        } ?>
+      </tbody>
+    </table>
+    <nav class="pagination-container">
+      <button class="pagination-button-1" id="prev-button-1" aria-label="Previous page" title="Previous page">
+        &lt;
+      </button>
+
+      <div id="pagination-numbers-1">
+
+      </div>
+
+      <button class="pagination-button-1" id="next-button-1" aria-label="Next page" title="Next page">
+        &gt;
+      </button>
+    </nav>
   </div>
   <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-  <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/createApplication/<?= $data['companyId'] ?>">Create Application</a>
-        <table class="table table-primary table-bordered">
-            <thead>
-            <th>Name</th>
-            <th>Usage</th>
-            <th>Date Release</th>
-            <th>Rating</th>
-            <th>Price</th>
-            </thead>
-            <tbody>
+    <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/createApplication/<?= $data['companyId'] ?>">Create Application</a>
+    <table id="paginated-list-2" data-current-page="1" aria-live="polite" class="table table-primary table-bordered pagination-tab-2">
+      <thead>
+        <th>Name</th>
+        <th>Usage</th>
+        <th>Date Release</th>
+        <th>Rating</th>
+        <th>Price</th>
+      </thead>
+      <tbody>
 
-            <?php if (!empty($data['application']))
-            {foreach ($data['application'] as $value) {
-                echo "<tr> 
+        <?php if (!empty($data['application'])) {
+          foreach ($data['application'] as $value) {
+            echo "<tr class='table-body-tr-2'> 
                 <td><a href='" . URLROOT . "DevelopersApplicationController/applicationHasDevelopers/" . $value->applicationId  . "'>$value->applicationName</a></td>
                             <td>" . $value->applicationUsage . "</td> 
                             <td>" . $value->applicationDateRelease . "</td> 
                             <td>" . $value->applicationRating . "</td> 
                             <td>" . $value->applicationPrice . "</td> 
             ";
-            }
-                } else {
-                    echo "<tr><td colspan='7'>No Applications found</td></tr>";
-                } ?>
-            </tbody>
-        </table>
+          }
+        } else {
+          echo "<tr><td colspan='7'>No Applications found</td></tr>";
+        } ?>
+      </tbody>
+    </table>
+    <nav class="pagination-container">
+      <button class="pagination-button-2" id="prev-button-2" aria-label="Previous page" title="Previous page">
+        &lt;
+      </button>
+
+      <div id="pagination-numbers-2">
+
+      </div>
+
+      <button class="pagination-button-2" id="next-button-2" aria-label="Next page" title="Next page">
+        &gt;
+      </button>
+    </nav>
   </div>
 </div>
 
 <a class="btn btn-primary" href="<?= URLROOT; ?>CompaniesController/companiesOverview/1">Go back</a>
-
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
