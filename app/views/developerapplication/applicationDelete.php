@@ -6,14 +6,14 @@ require APPROOT . '/views/includes/Header.php'; ?>
 <form class="form-group" action="<?= URLROOT; ?>DevelopersApplicationController/deleteApplication/<?= $data['row']->applicationId ?>" method="post">
     <table>
         <tbody>
-        <tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" value="Yes">
+                </td>
+            </tr>
             <td>
-                <input type="submit" name="submit" value="Yes">
+                <a class="btn btn-primary" href="<?= URLROOT; ?>DevelopersApplicationController/applicationHasDevelopers/<?= $data['row']->applicationId ?>">No</a>
             </td>
-        </tr>
-        <td>
-            <a class="btn btn-primary" href="<?= URLROOT; ?>CompaniesController/companiesoverview/" >No</a>
-        </td>
         </tbody>
     </table>
 

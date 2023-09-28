@@ -195,16 +195,18 @@ class DevelopersApplicationController extends Controller
         }
     }
 
-    public function applicationHasDevelopers($applicationId)
+
+    public function applicationHasDevelopers($ids)
     {
-        $applicationHasDevelopers = $this->developersapplicationmodel->getDeveloperByApplications($applicationId);
-        $company = $this->companiesmodel->getCompaniesById($applicationId);
+        $ids = explode("+", $ids);
+        $applicationHasDevelopers = $this->developersapplicationmodel->getDeveloperByApplications($ids[0]);
+        $company = $this->companiesmodel->getCompaniesById($ids[1]);
 
 
         $data = [
             'title' => 'Overview Application has developers',
             'applicationHasDevelopers' => $applicationHasDevelopers,
-            'applicationId' => $applicationId,
+            'applicationId' => $ids[0],
             'company' => $company
         ];
         $this->view('developerapplication/applicationhasdeveloper', $data);
